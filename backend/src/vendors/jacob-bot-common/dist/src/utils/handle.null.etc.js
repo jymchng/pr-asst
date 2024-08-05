@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.handleNullOrUndefinedWithErrorMessage=void 0;function n(e,r){if(e==null){let s=r||`Value is ${e}`;throw new Error(s)}return e}exports.handleNullOrUndefinedWithErrorMessage=n;

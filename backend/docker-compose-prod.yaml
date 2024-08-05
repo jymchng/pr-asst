@@ -1,0 +1,22 @@
+services:
+  pattern-research-prod:
+    container_name: pattern-research-prod
+    image: pattern-research-prod
+    restart: no
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+      args:
+        BUILD_ENV: production
+    env_file:
+      - .env.production
+    environment:
+      - INSIDE_DOCKER=1
+    expose:
+      - ${PORT}
+    networks:
+      - pattern-research-production
+
+networks:
+  pattern-research-production:

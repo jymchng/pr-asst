@@ -1,0 +1,47 @@
+services:
+  pattern-research_dev:
+    container_name: pattern-research_dev
+    image: pattern-research_dev
+    restart: "no"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        BUILD_ENV: development
+    env_file:
+      - .env.development
+    environment:
+      - INSIDE_DOCKER=1
+    expose:
+      - ${PORT}
+    networks:
+      - pattern-research_development
+      - jim-caddy_default
+    links:
+      - pattern-research_dev-redis-server
+      - pattern-research_dev-database
+    depends_on:
+      pattern-research_dev-redis-server:
+        condition: service_started
+      pattern-research_dev-database:
+        condition: service_started
+
+  pattern-research_dev-database:
+    image: bitnami/postgresql:latest
+    restart: always
+    container_name: pattern-research_dev-database
+    env_file: 
+      - .env.development
+      - secrets/.db.development
+    user: root
+    volumes:
+      - ./docker-volumes/pattern-research_dev-database:/bitnami/postgresql
+    ports:
+      - ${DATABASE_PORT}:5432 # Remove this on production
+    expose:
+      - 5432
+
+
+networks:
+  pattern-research_development:

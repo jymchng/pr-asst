@@ -1,0 +1,27 @@
+{
+    "name": "pattern-research",
+    "version": "0.1.0",
+    "description": "A GitHub Template for Most TypeScript Projects",
+    "scripts": {
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jymchng/pattern-research.git"
+    },
+    "keywords": [
+      "Template",
+      "TypeScript",
+      "GitHub"
+    ],
+    "author": "Jim Chng <jimchng@outlook.com>",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/jymchng/pattern-research/issues"
+    },
+    "homepage": "https://github.com/jymchng/pattern-research#readme",
+    "workspaces": [
+        "./frontend",
+        "./backend"
+    ]
+  }
+  

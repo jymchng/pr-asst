@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.printAnyObjectWithStandardFormat=void 0;function r(t){return t&&typeof t=="object"&&typeof t[Symbol.iterator]=="function"?`[${Array.from(t,e=>r(e)).join(", ")}]`:JSON.stringify(t,(n,e)=>typeof e=="bigint"?e.toString():e,2)}exports.printAnyObjectWithStandardFormat=r;

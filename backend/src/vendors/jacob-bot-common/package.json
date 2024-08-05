@@ -1,0 +1,46 @@
+{
+  "name": "jacob-bot-common",
+  "version": "0.1.0",
+  "description": "A library containing all common utilities and data structures for Jacob Bot.",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\" \"./*.ts\"",
+    "dist": "rimraf dist/ && npx tsc --outDir dist/ && find dist/ -type f -name \"*.js\" -exec npx esbuild --bundle {} --minify --platform=node --outfile={} --allow-overwrite \\;",
+    "prepare": "husky",
+    "clean": "rimraf build-dev build dist",
+    "check": "tsc "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizu-labs/jacob-bot-common.git"
+  },
+  "keywords": [
+    "Common",
+    "Utilities",
+    "Jacob",
+    "Bot"
+  ],
+  "author": "Jim Chng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizu-labs/jacob-bot-common/issues"
+  },
+  "homepage": "https://github.com/mizu-labs/jacob-bot-common#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.30",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.1.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
+  },
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.mjs",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}
